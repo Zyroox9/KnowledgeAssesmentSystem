@@ -6,12 +6,15 @@
 
 class CMainSkill :public CSkill
 {
-public:
     virtual deque<int> listIds();
-    void calculate();
 
     CMainSkill(double identification, string name_of_skill);
     ~CMainSkill();
+
+public:
+    void calculate();
+
+    friend class CSkillTree;
 };
 
 #endif // CMAINSKILL_H

@@ -11,7 +11,6 @@ using namespace std;
 
 class CReport
 {
-public:
     static int reportsCreated;
     int id;
     CStudent* owner;
@@ -22,6 +21,8 @@ public:
     void updateOwnerKnowledge();
 
     CReport();
+
+    friend class CTester;
 };
 
 #endif // CREPORT_H

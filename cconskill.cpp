@@ -24,3 +24,20 @@ deque<int> CConSkill::listIds()
 
     return list;
 };
+
+void CConSkill::calculate()
+{
+    double levelSum = 0;
+    double confidenceSum = 0;
+
+    for(int i=0; i<int(children.size()); i++)
+    {
+        levelSum += children[i]->getLevel();
+        confidenceSum += children[i]->getConfidenceBound();
+    }
+
+    level = levelSum / children.size();
+    setConfidenceBoud(confidenceSum / children.size());
+
+    return;
+}

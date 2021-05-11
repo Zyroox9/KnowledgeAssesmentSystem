@@ -22,7 +22,7 @@ void CTester::randomTest(int numberOfQ)
     for(int i = 0; i < numberOfQ; i++)
     {
         qId = rand() % int(tempDB->questionBase.size());
-        newTest->questions.push_back(tempDB->questionBase[qId]);
+        newTest->addQuestion(tempDB->questionBase[qId]);
         tempDB->questionBase.erase(tempDB->questionBase.begin() + qId);
     }
 
@@ -59,7 +59,7 @@ void CTester::testASkill(int skillId, int numberOfQ)
     for(int i = 0; i < numberOfQ; i++)
     {
         qId = rand() % int(temporary.size());
-        newTest->questions.push_back(temporary[qId]);
+        newTest->addQuestion(temporary[qId]);
         temporary.erase(temporary.begin() + qId);
     }
 
@@ -74,21 +74,21 @@ void CTester::getAnswers()
     deque<int> totalAns;
 
     cout<<endl<<"----------------------- TEST ------------------------------";
-    for(int i = 0; i < int(test->questions.size()); i++)
+    for(int i = 0; i < int(test->getQuestions().size()); i++)
     {
         cout<<endl<<"Zadanie "<<i + 1;
-        cout<<endl<<test->questions[i]->text<<endl<<endl;
+        cout<<endl<<test->getQuestions()[i]->text<<endl<<endl;
 
-        for (int j = 0; j < int(test->questions[i]->answers.size()); j++)
-            cout<<j+1<<" "<<test->questions[i]->answers[j]<<endl;
+        for (int j = 0; j < int(test->getQuestions()[i]->answers.size()); j++)
+            cout<<j+1<<" "<<test->getQuestions()[i]->answers[j]<<endl;
         cout<<endl;
         cin>>ans;
         totalAns.push_back(ans - 1);
-        cout<<endl<<endl<<"Twoja odpowiedz: "<<test->questions[i]->answers[ans-1]<<endl<<endl;
+        cout<<endl<<endl<<"Twoja odpowiedz: "<<test->getQuestions()[i]->answers[ans-1]<<endl<<endl;
 
     }
 
-    test->studentAns = totalAns;
+    test->setStudentAns(totalAns);
     cout<<endl<<"----------------- Odpowiedzi zapisane -------------------"<<endl;
 
     dataBase->updateTest(test);
@@ -102,11 +102,11 @@ void CTester::generateReport()
 
     test->checkAns();
 
-    newReport->owner = test->owner;
-    newReport->isCorrect = test->points;
+    newReport->owner = test->getOwner();
+    newReport->isCorrect = test->getPoints();
 
 
-    newReport->questions = test->questions;
+    newReport->questions = test->getQuestions();
 
     dataBase->addReport(newReport);
     newReport->appendToOwner();

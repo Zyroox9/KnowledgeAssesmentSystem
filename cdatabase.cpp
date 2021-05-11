@@ -77,6 +77,6 @@ void CDataBase::addReport(CReport *newReport)
 
 void CDataBase::updateTest(CTest* newTest)
 {
-    int testId = newTest->id;
+    int testId = newTest->getId();
     testBase[testId] = newTest;
 }

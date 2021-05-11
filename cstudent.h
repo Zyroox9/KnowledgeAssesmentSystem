@@ -5,7 +5,6 @@
 
 class CStudent
 {
-public:
     static int studentsCreated;
     int id;
     string firstname;
@@ -15,6 +14,11 @@ public:
 
     CStudent(string firstname, string surname);
 
+public:
+    void addReport(int repId);
+    CSkillTree* getKnowledge();
+
+    friend class CManage;
 };
 
 #endif // CSTUDENT_H

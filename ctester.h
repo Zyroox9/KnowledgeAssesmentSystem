@@ -7,7 +7,6 @@
 
 class CTester
 {
-public:
     CTest* test;
     CDataBase* dataBase;
 
@@ -18,6 +17,8 @@ public:
 
     CTester(CDataBase* db);
     ~CTester();
+
+    friend class CManage;
 };
 
 #endif // CTESTER_H

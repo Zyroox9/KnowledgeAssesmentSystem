@@ -6,14 +6,13 @@
 
 class CDataBase
 {
-private:
     deque<CStudent*> studentBase;
     deque<CTest*> testBase;
     deque<CReport*> reportBase;
     deque<SQuestion*> questionBase;
     CSkillTree *skillTreeSample;
 
-public:
+
     CTest* getTestById(int id);
     CStudent* getStudentById(int id);
     CReport* getReportById(int id);
@@ -29,6 +28,7 @@ public:
     CDataBase();
 
     friend class CTester;
+    friend class CManage;
 };
 
 #endif // CDATABASE_H

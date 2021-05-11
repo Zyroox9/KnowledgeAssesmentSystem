@@ -9,7 +9,6 @@
 
 class CManage
 {
-private:
     CDataBase* dataBase;
     CTester* tester;
 

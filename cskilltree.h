@@ -8,14 +8,15 @@
 
 class CSkillTree
 {
-public:
     vector<CSkill *> linear;
 
+    public:
     CSkill* search (int id);
+    vector<CSkill *> getLinear();
 
     CSkillTree();
 
-    friend class CStudent;
+   friend class CStudent;
 };
 
 #endif // CSKILLTREE_H

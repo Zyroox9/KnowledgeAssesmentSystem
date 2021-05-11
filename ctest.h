@@ -5,7 +5,6 @@
 
 class CTest
 {
-public:
     int id;
     static int testsCreated;
 
@@ -15,11 +14,22 @@ public:
     deque<bool> points;
     CReport* result;   
 
+public:
+    int getId();
+    deque<SQuestion*> getQuestions();
+    void setOwner(CStudent* ownr);
+    CStudent* getOwner();
+    deque<bool> getPoints();
+    void setStudentAns(deque<int> studAns);
+    void addQuestion(SQuestion* quest);
+
     void checkAns();
 
 
     CTest();
     ~CTest();
+
+
 };
 
 #endif // CTEST_H

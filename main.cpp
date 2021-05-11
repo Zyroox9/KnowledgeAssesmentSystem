@@ -21,7 +21,5 @@ int main(int argc, char *argv[])
     system.play();
 
 
-
-
     return a.exec();
 }

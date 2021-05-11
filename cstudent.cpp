@@ -8,3 +8,14 @@ CStudent::CStudent(string first, string sur)
 
     knowledge = new CSkillTree;
 }
+
+void CStudent::addReport(int repId)
+{
+    reports.push_back(repId);
+    return;
+}
+
+CSkillTree* CStudent::getKnowledge()
+{
+    return knowledge;
+}

@@ -17,9 +17,22 @@ deque<int> CMainSkill::listIds()
 {
     deque<int> list;
 
-    CSkill::search(list);
+    search(list);
 
     return list;
 };
 
+void CMainSkill::calculate()
+{
+    deque <int> list;
+    double levelSum = 0;
+    double confidenceSum = 0;
+
+    sumChildren(list, confidenceSum, levelSum);
+
+    level = levelSum / int(list.size());
+    setConfidenceBoud(confidenceSum / list.size());
+
+    return;
+}
 

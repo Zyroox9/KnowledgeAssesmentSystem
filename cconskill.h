@@ -5,11 +5,15 @@
 
 class CConSkill :public CSkill
 {
-public:
     virtual deque<int> listIds();
 
     CConSkill(double identification, string name_of_skill);
     ~CConSkill();
+
+public:
+    void calculate();
+
+    friend class CSkillTree;
 };
 
 #endif // CCONSKILL_H

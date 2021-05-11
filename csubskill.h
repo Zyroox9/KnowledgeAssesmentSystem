@@ -5,11 +5,12 @@
 
 class CSubSkill :public CSkill
 {
-public:
     virtual deque<int> listIds();
 
     CSubSkill(double identification, string name_of_skill);
     ~CSubSkill();
+
+    friend class CSkillTree;
 };
 
 #endif // CSUBSKILL_H

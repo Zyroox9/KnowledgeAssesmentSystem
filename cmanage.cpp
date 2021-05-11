@@ -21,9 +21,9 @@ void CManage::testTheStudent()
     cin>>testId;
 
     CTest* newTest = new CTest;
-    newTest->questions = dataBase->getTestById(testId)->questions;
+    newTest->getQuestions() = dataBase->getTestById(testId)->getQuestions();
 
-    newTest->owner = student;
+    newTest->setOwner(student);
     tester->test = newTest;
 
     testAndCheck();
@@ -136,7 +136,7 @@ void CManage::initiateTest()
         return;
     }
 
-    tester->test->owner = student;
+    tester->test->setOwner(student);
 
     testAndCheck();
 
@@ -199,5 +199,5 @@ void CManage::checkKnowledge()
 
     CStudent* student = dataBase->getStudentById(studentId);
 
-    cout<<endl<<"Posiada "<<student->knowledge->linear[0]->level<<"% "<<"wiedzy maturalnej."<<endl<<endl;
+    cout<<endl<<"Posiada "<<student->knowledge->getLinear()[0]->getLevel()<<"% "<<"wiedzy maturalnej."<<endl<<endl;
 }

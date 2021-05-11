@@ -24,3 +24,33 @@ void CTest::checkAns()
 
    return;
 }
+
+int CTest::getId() {
+    return id;
+}
+
+deque<SQuestion*> CTest::getQuestions() {
+    return questions;
+}
+
+void CTest::setOwner(CStudent* ownr) {
+    owner = ownr;
+    return;
+}
+
+CStudent* CTest::getOwner() {
+    return owner;
+}
+
+deque<bool> CTest::getPoints() {
+    return points;
+}
+
+void CTest::setStudentAns(deque<int> studAns) {
+    studentAns = studAns;
+}
+
+void CTest::addQuestion(SQuestion* quest) {
+    questions.push_back(quest);
+}
+

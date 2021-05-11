@@ -11,21 +11,34 @@ using namespace std;
 
 class CSkill
 {
-public:
-    vector<CSkill *> parents;
-    vector<CSkill *> children;
+
     string name;
-    int id;
-    int type;
-    double level = 0.5;
     double confidenceBound = 1;
 
     void add_child(CSkill *child);
-    virtual deque<int> listIds();
-    void search(deque<int> &list);
+
+
+protected:
+    vector<CSkill *> parents;
+    vector<CSkill *> children;
+    int id;
+    double level = 0.5;
 
     CSkill(double identification, string name_of_skill);
     virtual ~CSkill();
+
+public:
+    int type;
+
+    void search(deque<int> &list);
+    void sumChildren(deque<int> &list, double &confSum, double &lvlSum);
+    virtual deque<int> listIds();
+    double getLevel();
+    void setLevel(double newLvl);
+    double getConfidenceBound();
+    void updateConfidenceBound();
+    void setConfidenceBoud(double confBound);
+    int getId();
 
     friend class CSkillTree;
 };

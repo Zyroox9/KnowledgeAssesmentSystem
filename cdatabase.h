@@ -1,6 +1,8 @@
 #ifndef CDATABASE_H
 #define CDATABASE_H
 
+#include <QSqlDatabase>
+
 #include "ctest.h"
 
 

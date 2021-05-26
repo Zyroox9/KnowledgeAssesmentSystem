@@ -3,6 +3,14 @@
 CDataBase::CDataBase()
 {
     skillTreeSample = new CSkillTree;
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+        db.setHostName("bigblue");
+        db.setDatabaseName("flightdb");
+        db.setUserName("acarlson");
+        db.setPassword("1uTbSbAs");
+        bool ok = db.open();
+
 }
 
 CTest* CDataBase::getTestById(int id)
